@@ -20,6 +20,8 @@ class FlashDriveApp extends StatelessWidget {
 
 class WordButtonState extends State<WordButton> {
   bool pressed = false;
+  int i = 0;
+
   List<Map<String, String>> wordPair = [
     {'key': 'hai', 'value': 'yes'},
     {'key': 'iie', 'value': 'no'},
@@ -29,8 +31,6 @@ class WordButtonState extends State<WordButton> {
 
   @override
   Widget build(BuildContext context) {
-    var i = 3;
-
     String langKey = wordPair[i]['key'];
     String langValue = wordPair[i]['value'];
 
@@ -43,7 +43,12 @@ class WordButtonState extends State<WordButton> {
               pressed = !pressed;
             });
           },
-          onLongPress: () {},
+          onLongPress: () {
+            setState(() {
+              pressed = false;
+              i = i == wordPair.length - 1 ? 0 : i + 1;
+            });
+          },
           textColor: Colors.red,
           splashColor: Colors.red,
           colorBrightness: Brightness.dark,

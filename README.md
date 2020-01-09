@@ -1,12 +1,11 @@
-# flash_drive
+# flash-drive
 
-A new Flutter project.
+A Flutter app ( my first ! ) to make a simple `flash` card like app to learn languages.
+Tap on the simple button to see the meaning of the word on it, and long press it to move to the next word in the list.
 
-## Getting Started
+TODO Read the word pair list from google `drive`.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
+## Flutter resources
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
