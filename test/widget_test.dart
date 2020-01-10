@@ -1,5 +1,5 @@
+import 'package:flash_drive/src/flash_drive_app.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flash_drive/main.dart';
 
 void main() {
   testWidgets('Trigger app frame', (WidgetTester tester) async {
