@@ -4,23 +4,30 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
-import 'word_button.dart';
+import 'card_page.dart';
 
-class FlashDriveApp extends StatelessWidget {
+class FlashDriveApp extends StatefulWidget {
+  @override
+  FlashDriveState createState() {
+    return new FlashDriveState();
+  }
+}
+
+class FlashDriveState extends State<FlashDriveApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.red,
-        title: const Text('FLash-Drive'),
+        backgroundColor: Colors.amber,
+        title: const Text('flash-drive'),
       ),
-      body: WordButton(),
+      body: CardPage(),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           wordPair.clear();
           File file = await FilePicker.getFile(
-              type: FileType.CUSTOM, fileExtension: 'txt');
+              type: FileType.custom, allowedExtensions: ['txt', 'doc', 'docx']);
           Stream<List<int>> inputStream = file.openRead();
           inputStream
               .transform(utf8.decoder) // Decode bytes to UTF-8.
@@ -29,14 +36,16 @@ class FlashDriveApp extends StatelessWidget {
               .listen((String line) {
             loadWordPairs('$line'); // Process results.
           }, onDone: () {
+            setState(() {
+              pressed = true;
+            });
             showDialog(
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: Colors.redAccent,
+                    backgroundColor: Colors.white,
                     title: new Text('Your words are locked & loaded !'),
-                    content: new Text(
-                        'TAP button to learn the meaning / LONG PRESS to cycle to the next word'),
+                    content: new Text('Click anywhere to close'),
                   );
                 });
           }, onError: (e) {
@@ -44,7 +53,7 @@ class FlashDriveApp extends StatelessWidget {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: Colors.red,
+                    backgroundColor: Colors.white,
                     title: new Icon(Icons.error),
                     content: new Text(e.toString()),
                   );
@@ -52,7 +61,7 @@ class FlashDriveApp extends StatelessWidget {
           });
         },
         child: Icon(Icons.file_upload),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.amberAccent,
       ),
     );
   }
