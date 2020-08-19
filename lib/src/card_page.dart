@@ -3,7 +3,8 @@ import 'package:transformer_page_view/transformer_page_view.dart';
 
 List<Map<String, String>> wordPair = [];
 
-bool pressed = false;
+bool loaded = false;
+bool flashed = false;
 
 class CardPage extends StatefulWidget {
   @override
@@ -16,6 +17,11 @@ class CardPageState extends State<CardPage> {
     return new TransformerPageView(
         loop: true,
         viewportFraction: 0.8,
+        onPageChanged: (int) {
+          setState(() {
+            flashed = false;
+          });
+        },
         transformer: new PageTransformerBuilder(
             builder: (Widget child, TransformInfo info) {
           return new Padding(
@@ -35,16 +41,40 @@ class CardPageState extends State<CardPage> {
                         new ParallaxContainer(
                           child: Align(
                               alignment: Alignment.center,
-                              child: Container(
-                                  child: Text(
-                                      pressed
-                                          ? wordPair[info.index + 1]['key']
-                                          : "Press the upload button to load some word pairs.",
-                                      style: new TextStyle(
-                                        fontSize: 24.0,
-                                        color: Colors.black,
-                                      ),
-                                      textAlign: TextAlign.justify))),
+                              child: Column(children: <Widget>[
+                                Text(
+                                    loaded
+                                        ? wordPair[info.index + 1]['key'].trim()
+                                        : "Press the upload button to load some word pairs.",
+                                    style: new TextStyle(
+                                      fontSize: 24.0,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.justify),
+                                SizedBox(height: 100),
+                                loaded
+                                    ? FloatingActionButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            flashed = !flashed;
+                                          });
+                                        },
+                                        child: Icon(Icons.remove_red_eye),
+                                        backgroundColor: Colors.grey,
+                                      )
+                                    : SizedBox(height: 0),
+                                SizedBox(height: 100),
+                                Text(
+                                    loaded && flashed
+                                        ? wordPair[info.index + 1]['value']
+                                            .trim()
+                                        : "",
+                                    style: new TextStyle(
+                                      fontSize: 24.0,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.justify),
+                              ])),
                           position: info.position,
                           translationFactor: 300.0,
                         ),

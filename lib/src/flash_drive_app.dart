@@ -37,7 +37,7 @@ class FlashDriveState extends State<FlashDriveApp> {
             loadWordPairs('$line'); // Process results.
           }, onDone: () {
             setState(() {
-              pressed = true;
+              loaded = true;
             });
             showDialog(
                 context: context,
@@ -53,7 +53,7 @@ class FlashDriveState extends State<FlashDriveApp> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: Colors.white,
+                    backgroundColor: Colors.orangeAccent,
                     title: new Icon(Icons.error),
                     content: new Text(e.toString()),
                   );
