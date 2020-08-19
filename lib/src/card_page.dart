@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:transformer_page_view/transformer_page_view.dart';
 
+final String instructions =
+    "• Press the upload button to load pairs of phrases.\n\n• Upload a txt file with comma separated phrases per line.\n\n• Swipe left or right to switch to the next card.\n\n• Tap the 👁 button to reveal the answer.";
+
 List<Map<String, String>> wordPair = [];
 
 bool loaded = false;
@@ -45,7 +48,7 @@ class CardPageState extends State<CardPage> {
                                 Text(
                                     loaded
                                         ? wordPair[info.index + 1]['key'].trim()
-                                        : "Press the upload button to load some word pairs.",
+                                        : instructions,
                                     style: new TextStyle(
                                       fontSize: 24.0,
                                       color: Colors.black,

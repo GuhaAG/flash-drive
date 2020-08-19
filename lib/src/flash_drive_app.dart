@@ -43,9 +43,10 @@ class FlashDriveState extends State<FlashDriveApp> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: Colors.white,
-                    title: new Text('Your words are locked & loaded !'),
-                    content: new Text('Click anywhere to close'),
+                    backgroundColor: Colors.amberAccent,
+                    title: new Text(
+                        "Your flash cards are ready, Happy Studying !"),
+                    content: new Text("Tap anywhere to close"),
                   );
                 });
           }, onError: (e) {
@@ -53,7 +54,7 @@ class FlashDriveState extends State<FlashDriveApp> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: Colors.orangeAccent,
+                    backgroundColor: Colors.redAccent,
                     title: new Icon(Icons.error),
                     content: new Text(e.toString()),
                   );
