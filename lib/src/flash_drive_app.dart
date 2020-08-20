@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 import 'card_page.dart';
 
@@ -14,6 +15,8 @@ class FlashDriveApp extends StatefulWidget {
 }
 
 class FlashDriveState extends State<FlashDriveApp> {
+  bool error = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,26 +42,33 @@ class FlashDriveState extends State<FlashDriveApp> {
             setState(() {
               loaded = true;
             });
-            showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    backgroundColor: Colors.amberAccent,
-                    title: new Text(
-                        "Your flash cards are ready, Happy Studying !"),
-                    content: new Text("Tap anywhere to close"),
-                  );
-                });
+            if (!error) {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      backgroundColor: Colors.amberAccent,
+                      title: new Text(
+                          "Your flash cards are ready, Happy Studying !"),
+                      content: new Text("Tap anywhere to close"),
+                    );
+                  });
+            }
           }, onError: (e) {
+            setState(() {
+              error = true;
+              loaded = false;
+            });
             showDialog(
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
                     backgroundColor: Colors.redAccent,
                     title: new Icon(Icons.error),
-                    content: new Text(e.toString()),
+                    content: new Text(
+                        "File content is invalid\n\nPlease use a file with comma separated text on each line."),
                   );
-                });
+                }).whenComplete(() => {Phoenix.rebirth(context)});
           });
         },
         child: Icon(Icons.file_upload),

@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   file_picker: ^1.4.2
   transformer_page_view:
+  flutter_phoenix: "^0.1.0"
 
 dev_dependencies:
   flutter_test:
