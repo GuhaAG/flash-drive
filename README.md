@@ -6,5 +6,6 @@ Select a `txt` file containing comma separated phrase pairs from your phone's di
 
 w.i.p. mvp apk upload
 
+App icon image credit to [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/).
 
 ![Flutter CI](https://github.com/GuhaAG/flash-drive/workflows/Flutter%20CI/badge.svg)

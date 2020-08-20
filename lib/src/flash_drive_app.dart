@@ -49,7 +49,7 @@ class FlashDriveState extends State<FlashDriveApp> {
                     return AlertDialog(
                       backgroundColor: Colors.amberAccent,
                       title: new Text(
-                          "Your flash cards are ready, Happy Studying !"),
+                          "Your flash cards are ready\n\n Happy Studying !"),
                       content: new Text("Tap anywhere to close"),
                     );
                   });
