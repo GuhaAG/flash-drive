@@ -1,4 +1,4 @@
-# flash-drive
+# FlashDrive
 
 A Flutter app ( my first ! ) to make a simple `flash` card like app to learn languages or just study any subject.
 
@@ -8,4 +8,4 @@ w.i.p. mvp apk upload
 
 App icon image credit to [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/).
 
-![Flutter CI](https://github.com/GuhaAG/flash-drive/workflows/Flutter%20CI/badge.svg)
+![Flutter CI](https://github.com/GuhaAG/FlashDrive/workflows/Flutter%20CI/badge.svg)

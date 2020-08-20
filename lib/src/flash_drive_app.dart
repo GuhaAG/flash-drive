@@ -23,7 +23,7 @@ class FlashDriveState extends State<FlashDriveApp> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: const Text('flash-drive'),
+        title: const Text('FlashDrive'),
       ),
       body: CardPage(),
       floatingActionButton: FloatingActionButton(
