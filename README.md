@@ -6,4 +6,6 @@ Select a `txt` file containing comma separated phrase pairs from your phone's di
 
 *mvp apk released*
 
+[![sample screencap](https://i.postimg.cc/wvBDsPGT/interesting.jpg)](https://postimg.cc/ns6Xydx6)
+
 App icon image credit to [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/).
