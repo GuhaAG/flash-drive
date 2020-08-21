@@ -40,13 +40,41 @@ class TutorialOverlay extends ModalRoute<void> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(
-            'This is a nice overlay',
-            style: TextStyle(color: Colors.white, fontSize: 30.0),
+          Column(
+            children: [
+              Text(
+                'Tap to show/hide the answer',
+                style: TextStyle(color: Colors.white, fontSize: 18.0),
+              ),
+              Icon(
+                Icons.arrow_downward,
+                size: 60,
+              ),
+              SizedBox(
+                height: 100,
+                width: 0,
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.arrow_back,
+                    size: 60,
+                  ),
+                  Text(
+                    'Swipe left or right to change cards',
+                    style: TextStyle(color: Colors.white, fontSize: 18.0),
+                  ),
+                  Icon(
+                    Icons.arrow_forward,
+                    size: 60,
+                  ),
+                ],
+              ),
+            ],
           ),
           RaisedButton(
             onPressed: () => Navigator.pop(context),
-            child: Text('Dismiss'),
+            child: Icon(Icons.close),
           )
         ],
       ),

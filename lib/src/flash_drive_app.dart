@@ -37,14 +37,18 @@ class FlashDriveState extends State<FlashDriveApp> {
               height: 0,
               width: 40,
             ),
-            FloatingActionButton(
-              onPressed: () {},
-              child: Icon(Icons.info),
-              backgroundColor: Colors.amberAccent,
-            ),
+            loaded
+                ? FloatingActionButton(
+                    onPressed: () => _showOverlay(context),
+                    child: Icon(Icons.info),
+                    backgroundColor: Colors.amberAccent,
+                  )
+                : SizedBox(
+                    width: 55,
+                  ),
             SizedBox(
               height: 0,
-              width: 240,
+              width: 250,
             ),
             FloatingActionButton(
               onPressed: () async {
@@ -72,7 +76,7 @@ class FlashDriveState extends State<FlashDriveApp> {
                             title: new Text("Your flash cards are ready !"),
                             content: new Text("Let's go !"),
                           );
-                        });
+                        }).whenComplete(() => _showOverlay(context));
                   }
                 }, onError: (e) {
                   setState(() {
