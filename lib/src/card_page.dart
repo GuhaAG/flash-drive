@@ -46,7 +46,7 @@ class CardPageState extends State<CardPage> {
                               alignment: Alignment.center,
                               child: Column(children: <Widget>[
                                 Text(
-                                    loaded
+                                    loaded && wordPair.length > 0
                                         ? wordPair[info.index + 1]['key'].trim()
                                         : instructions,
                                     style: new TextStyle(
@@ -55,7 +55,7 @@ class CardPageState extends State<CardPage> {
                                     ),
                                     textAlign: TextAlign.justify),
                                 SizedBox(height: 100),
-                                loaded
+                                loaded && wordPair.length > 0
                                     ? FloatingActionButton(
                                         onPressed: () {
                                           setState(() {
@@ -68,7 +68,7 @@ class CardPageState extends State<CardPage> {
                                     : SizedBox(height: 0),
                                 SizedBox(height: 100),
                                 Text(
-                                    loaded && flashed
+                                    loaded && flashed && wordPair.length > 0
                                         ? wordPair[info.index + 1]['value']
                                             .trim()
                                         : "",
