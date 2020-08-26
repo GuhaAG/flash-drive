@@ -37,7 +37,7 @@ class FlashDriveState extends State<FlashDriveApp> {
               height: 0,
               width: 40,
             ),
-            loaded
+            loaded && wordPair.length > 0
                 ? FloatingActionButton(
                     onPressed: () => _showOverlay(context),
                     child: Icon(Icons.info),
