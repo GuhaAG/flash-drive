@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:transformer_page_view/transformer_page_view.dart';
 
 final String instructions =
-    "• Press the upload button to load pairs of phrases.\n\n• Upload a txt file with comma separated phrases per line.\n\n• Swipe left or right to switch to the next card.\n\n• Tap the 👁 button to reveal the answer.";
+    "\n\n• Upload a txt/doc/docx file with comma separated phrases per line.\n\n• We will make flash cards for you using the phrase pairs.\n\n• Start by pressing the upload button on the bottom right.";
 
 List<Map<String, String>> wordPair = [];
 
