@@ -108,5 +108,7 @@ class FlashDriveState extends State<FlashDriveApp> {
       'value': s.split(',')[1].trim()
     };
     wordPair.add(wordPairMap);
+    //TODO: Add a settings page and choose to shuffle or not
+    wordPair.shuffle();
   }
 }
