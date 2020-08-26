@@ -6,7 +6,7 @@ Select a `txt` file containing comma separated phrase pairs from your phone's di
 
 *mvp apk [released](https://github.com/GuhaAG/flash-drive/releases/tag/0.1.0)*
 
-![sample screencap](https://i.postimg.cc/wvBDsPGT/interesting.jpg)]
+![sample screencap](https://i.postimg.cc/wvBDsPGT/interesting.jpg)
 
 sample android screencap
 
