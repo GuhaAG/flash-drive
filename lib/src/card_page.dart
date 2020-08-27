@@ -1,8 +1,12 @@
+import 'package:flash_drive/src/video_guide_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:transformer_page_view/transformer_page_view.dart';
 
-final String instructions =
-    "\n\n• Upload a txt/doc/docx file with comma separated phrases per line.\n\n• We will make flash cards for you using the phrase pairs.\n\n• Start by pressing the upload button on the bottom right.";
+String instructions =
+    "• Upload a text file with comma separated phrases per line.\n\n" +
+        "• We will make flash cards for you using the phrase pairs.\n\n" +
+        "• Upload a file by pressing the upload button on the bottom right.\n\n" +
+        "• Start by watching a guide by pressing the button right below.\n\n";
 
 List<Map<String, String>> wordPair = [];
 
@@ -15,6 +19,10 @@ class CardPage extends StatefulWidget {
 }
 
 class CardPageState extends State<CardPage> {
+  void _showOverlay(BuildContext context) {
+    Navigator.of(context).push(VideoGuideOverlay());
+  }
+
   @override
   TransformerPageView build(BuildContext context) {
     return new TransformerPageView(
@@ -54,6 +62,19 @@ class CardPageState extends State<CardPage> {
                                       color: Colors.black,
                                     ),
                                     textAlign: TextAlign.justify),
+                                wordPair.length == 0
+                                    ? SizedBox(
+                                        width: 100,
+                                        height: 50,
+                                        child: FloatingActionButton(
+                                          onPressed: () {
+                                            _showOverlay(context);
+                                          },
+                                          tooltip: 'Show Guide',
+                                          child: Icon(Icons.ondemand_video),
+                                          backgroundColor: Colors.amber,
+                                        ))
+                                    : SizedBox(height: 0),
                                 SizedBox(height: 100),
                                 loaded && wordPair.length > 0
                                     ? FloatingActionButton(
