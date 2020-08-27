@@ -10,4 +10,6 @@ Select a `txt` file containing comma separated phrase pairs from your phone's di
 
 sample android screencap
 
+[How to use : Simple example tutorial](https://www.youtube.com/watch?v=wOEc2TSzNlE)
+
 App icon image credit to [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/).
