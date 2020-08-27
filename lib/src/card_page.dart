@@ -47,7 +47,7 @@ class CardPageState extends State<CardPage> {
                               child: Column(children: <Widget>[
                                 Text(
                                     loaded && wordPair.length > 0
-                                        ? wordPair[info.index + 1]['key'].trim()
+                                        ? wordPair[info.index]['key'].trim()
                                         : instructions,
                                     style: new TextStyle(
                                       fontSize: 24.0,
@@ -69,8 +69,7 @@ class CardPageState extends State<CardPage> {
                                 SizedBox(height: 100),
                                 Text(
                                     loaded && flashed && wordPair.length > 0
-                                        ? wordPair[info.index + 1]['value']
-                                            .trim()
+                                        ? wordPair[info.index]['value'].trim()
                                         : "",
                                     style: new TextStyle(
                                       fontSize: 24.0,
@@ -92,6 +91,6 @@ class CardPageState extends State<CardPage> {
             ),
           );
         }),
-        itemCount: wordPair.length - 1);
+        itemCount: wordPair.length > 0 ? wordPair.length : 1);
   }
 }
